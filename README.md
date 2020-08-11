@@ -63,7 +63,7 @@ print(response)
 
 ## Reference
 
-[requests](#https://github.com/psf/requests)
+[requests](https://github.com/psf/requests)
 
 ## License
 [Apache 2.0](./LICENSE)
