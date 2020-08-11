@@ -3,8 +3,6 @@ import reqe
 
 # use default setting, it can be used like request
 response = reqe.get("https://www.baidu.com")
-# when `requests` raise an exception, the response is None
-# but `reqe` will catch the exception
 if response:
     print(response)
 
@@ -13,7 +11,9 @@ if response:
 # delay: time between two requests
 # backoff: delay = delay * backoff
 response = reqe.get("https://www.google.com", retries=3, delay=3, backoff=2, timeout=(2, 2))
-print(response)
+# when `requests` raise an exception, `reqe` will catch the exception and response is None
+if response:
+    print(response)
 
 
 # how to use reqe with session
