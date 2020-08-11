@@ -3,6 +3,8 @@ import time
 
 from functools import wraps
 
+from reqe.utils import set_reqe_headers
+
 
 def request_retry(exception):
     def deco_retry(f):
@@ -15,7 +17,7 @@ def request_retry(exception):
             t = False
             while retries > 0:
                 try:
-                    response = f(*args, **kwargs)
+                    response = f(headers=set_reqe_headers(), *args, **kwargs)
                     t = True
                 except exception as e:
                     logging.warning(f"{e}, retrying in {delay} seconds")
