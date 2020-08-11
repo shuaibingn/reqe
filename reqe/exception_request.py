@@ -21,7 +21,8 @@ def request_retry(exception):
                     t = True
                 except exception as e:
                     logging.warning(f"{e}, retrying in {delay} seconds")
-                    time.sleep(delay)
+                    if retries > 1:
+                        time.sleep(delay)
                     retries -= 1
                     delay *= backoff
                 else:
