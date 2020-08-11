@@ -3,7 +3,10 @@ import reqe
 
 # use default setting, it can be used like request
 response = reqe.get("https://www.baidu.com")
-print(response)
+# when `requests` raise an exception, the response is None
+# but `reqe` will catch the exception
+if response:
+    print(response)
 
 # specify the params that you like
 # retries: How many retries
