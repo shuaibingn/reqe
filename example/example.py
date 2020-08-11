@@ -11,7 +11,7 @@ if response:
 # delay: time between two requests
 # backoff: delay = delay * backoff
 response = reqe.get("https://www.google.com", retries=3, delay=3, backoff=2, timeout=(2, 2))
-# when `requests` raise an exception, `reqe` will catch it and response is None
+# when `requests` raises an exception, `reqe` will catch it and let the response be None
 if response:
     print(response)
 
