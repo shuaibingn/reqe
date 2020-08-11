@@ -2,6 +2,14 @@
 
 A python network request library that will not throw exceptions
 
+## Table of Contents
+
+- [Background](#Background)
+- [Install](#Install)
+- [Usage](#Usage)
+- [Reference](#Reference)
+- [License](#License)
+
 ## Background
 
 When timeout, network connection error, server error, etc., 
@@ -9,6 +17,19 @@ When timeout, network connection error, server error, etc.,
 
 
 Under the above problems, I developed a `reqe` based on the requests library, which is as simple as requests
+
+## Install
+
+- #### source code
+
+```shell script
+git clone git@github.com:ophlr/reqe.git
+```
+
+- #### pip
+```shell script
+pip install reqe
+```
 
 ## Usage
 
@@ -39,3 +60,10 @@ print(response)
 response = session.get("https://www.google.com", retries=1, delay=3, backoff=2, timeout=(2, 2))
 print(response)
 ```
+
+## Reference
+
+[requests](#https://github.com/psf/requests)
+
+## License
+[Apache 2.0](./LICENSE)
