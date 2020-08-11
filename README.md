@@ -4,7 +4,10 @@ A python network request library that will not throw exceptions
 
 ## Background
 
-When timeout, network connection error, server error, etc., `requests` will raise the exception, there will be a lot of `try ... except ...` in the code.
+When timeout, network connection error, server error, etc., 
+`requests` will raise the exception, there will be a lot of `try ... except ...` in the code.
+
+
 Under the above problems, I developed a `reqe` based on the requests library, which is as simple as requests
 
 ## Usage
