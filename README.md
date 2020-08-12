@@ -42,7 +42,7 @@ if response:
     print(response)
 
 # specify the params that you like
-# retries: How many retries
+# retries: How many retries, If you don’t want to resend the request, you can set retries to 0
 # delay: time between two requests
 # backoff: delay = delay * backoff
 response = reqe.get("https://www.google.com", retries=3, delay=3, backoff=2)
