@@ -1,25 +1,15 @@
-# how to use reqe
 import reqe
 
-# use default setting, it can be used like request
-response = reqe.get("https://www.baidu.com")
+# use reqe like requests
+# retries = 3s
+# delay = 1s
+# backoof = 1
+response = reqe.get("https://www.google.com")
 if response:
-    print(response)
+    print(response.status_code)
 
-# specify the params that you like
-# retries: How many retries
-# delay: time between two requests
-# backoff: delay = delay * backoff
-response = reqe.get("https://www.google.com", retries=3, delay=3, backoff=2, timeout=(2, 2))
-# when `requests` raises an exception, `reqe` will catch it and let the response be None
+# customize the parameters of reqe
+response = reqe.get("https://www.gooogle.com", retries=2, delay=3, backoff=2, timeout=(2, 2))
 if response:
-    print(response)
-
-
-# how to use reqe with session
-session = reqe.session()
-response = session.get("https://www.baidu.com")
-print(response)
-
-response = session.get("https://www.google.com", retries=1, delay=3, backoff=2, timeout=(2, 2))
+    print(response.status_code)
 print(response)

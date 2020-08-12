@@ -12,16 +12,16 @@ def request_retry(exception):
         @wraps(f)
         def f_retry(*args, **kwargs):
             retries = kwargs.pop("retries", 3)
-            delay = kwargs.pop("delay", 3)
-            backoff = kwargs.pop("backoff", 2)
+            delay = kwargs.pop("delay", 1)
+            backoff = kwargs.pop("backoff", 1)
             t = False
-            while retries > 0:
+            while retries >= 0:
                 try:
                     response = f(headers=set_reqe_headers(), *args, **kwargs)
                     t = True
                 except exception as e:
-                    logging.warning(f"{e}, retrying in {delay} seconds")
-                    if retries > 1:
+                    if retries >= 1:
+                        logging.warning(f"retrying {retries} times in {delay} seconds, {e}")
                         time.sleep(delay)
                     retries -= 1
                     delay *= backoff
