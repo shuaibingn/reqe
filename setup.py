@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import sys
+import datetime
+
 from setuptools import setup
 
 if sys.version_info < (2, 5):
@@ -8,8 +10,7 @@ if sys.version_info < (2, 5):
 with open("README.md", "r", encoding="utf-8") as f:
     readme = f.read()
 
-VERSION = "1.0.4"
-
+VERSION = datetime.datetime.now().strftime("%Y.%m.%d.%H%M%S")
 LICENSE = "apache"
 
 setup(
